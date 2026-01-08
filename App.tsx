@@ -1,12 +1,12 @@
 
-import React, { useState, useEffect } from 'react';
-import { Product } from './types';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import ProductGrid from './components/ProductGrid';
-import Footer from './components/Footer';
-import PolicySection from './components/PolicySection';
-import SKU25718 from './pages/products/SKU25718';
+import React, { useState } from 'react';
+import { Product } from './types.ts';
+import Navbar from './components/Navbar.tsx';
+import Hero from './components/Hero.tsx';
+import ProductGrid from './components/ProductGrid.tsx';
+import Footer from './components/Footer.tsx';
+import PolicySection from './components/PolicySection.tsx';
+import SKU25718 from './pages/products/SKU25718.tsx';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<'home' | 'sku25718'>('home');
