@@ -10,6 +10,7 @@ import SKU25718 from './pages/products/SKU25718';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<'home' | 'sku25718'>('home');
+  const mainShopUrl = "https://etarnel-shop.scommerz.com";
 
   const products: Product[] = [
     { 
@@ -34,7 +35,8 @@ const App: React.FC = () => {
       setCurrentPage('sku25718');
       window.scrollTo(0, 0);
     } else {
-      alert(`Details for ${product.name} coming soon!`);
+      // Direct users to the main shop for other items
+      window.open(mainShopUrl, '_blank');
     }
   };
 
@@ -51,8 +53,11 @@ const App: React.FC = () => {
             
             <div id="shop" className="max-w-7xl mx-auto px-4 py-16">
               <div className="flex flex-col items-center mb-12">
+                <div className="mb-6 px-4 py-2 bg-white bubbly-border rounded-full inline-block animate-pulse">
+                  <span className="font-black text-orange-600">Main Shop: etarnel-shop.scommerz.com</span>
+                </div>
                 <h2 className="text-4xl md:text-6xl font-bold text-center mb-4 bubbly-text-3d tracking-tight">
-                  NEW ARRIVALS
+                  FEATURED ITEMS
                 </h2>
                 <div className="h-2 w-32 bg-orange-500 rounded-full bubbly-border"></div>
               </div>
@@ -61,6 +66,15 @@ const App: React.FC = () => {
                 products={products} 
                 onViewDetails={handleViewDetails}
               />
+
+              <div className="mt-16 text-center">
+                <a 
+                  href={mainShopUrl}
+                  className="inline-block px-12 py-5 bg-[#1a1a1a] text-white text-2xl font-black rounded-3xl border-4 border-black shadow-[8px_8px_0px_#F88D2D] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
+                >
+                  VISIT OUR MAIN WEBSITE →
+                </a>
+              </div>
             </div>
 
             <PolicySection />
